@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Login Page</title>
+{% endblock %}
+
+
+
+</head>
+<body>
+    {% block body_block %}
+
+    <div class="container">
+        <div class="jumbotron">
+
+        <form method="POST">
+            {% csrf_token %}
+            <h4>User Login</h4>
+
+        <div class='label'><label for="name">User name</label></div>
+    
+        <div class="input"><input type="text" name="name" id="name" ></div>
+    
+        <div class='label'><label for="password">Password</label> </div>
+    
+        <div class="input"><input type="password" name="password" id="password"></div>
+    
+        <div class="res"><a href="{% url 'reset_pword' %}"><label for="Forgot password">Forgot password</label></a> </div>
+    
+        <div class='submit'><input type="submit" value="Login"> </div>
+    
+    </form>
+    
+    
+    </div>
+    </div>
+    {% endblock %}
+
+</body>
+</html>

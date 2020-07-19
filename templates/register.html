@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Registration Page</title>
+    {% endblock %}
+    <script src="{% static 'js/config.navbar-vertical.js' %}"></script>
+
+<link href="{% static 'css/theme.css' %}" rel="stylesheet">
+<style>
+    body {
+        background: #a5e3e9;
+    }
+    
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+</style>
+
+</head>
+<body>
+    {% block body_block %}
+    <div class="container" data-layout="container">
+    <div class="card">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+   
+        {{user_form|crispy}}
+        {{edu_form|crispy}}
+        <input type="submit" value="Register">
+    </form>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>
